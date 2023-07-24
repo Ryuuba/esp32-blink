@@ -6,7 +6,6 @@
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
 */
-#include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
@@ -23,7 +22,8 @@ void app_main(void)
     /* Set the GPIO as a push/pull output */
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
 
-    while (1) {
+    while (true)
+    {
         gpio_set_level(BLINK_GPIO, s_led_state);
         /* Toggle the LED state */
         s_led_state = !s_led_state;
